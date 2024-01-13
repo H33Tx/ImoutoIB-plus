@@ -1,0 +1,115 @@
+{
+	"db": "MySQL",
+	"theme": "imouto",
+	"subtheme": "default",
+
+	"debug": true,
+	"generated_in": true,
+	"display_version": true,
+	"catalog_enabled": true,
+
+	"site_name": "ImoutoIB-Plus",
+	"site_slogan": "As if it were writen by literal children.",
+	"display_banner": true,
+	"secure_hash": "ADKLJH90u23=()!ß8)DAHOlöhksdfklbjCXM;:khjfoziwer07=/()DAS",
+
+	"captcha_required": true,
+	"boardlist": "title",
+
+	"time_method": "compactsince",
+	"time_method_hover": "human",
+
+	"forced_anon": false,
+	"default_name": "Anonymous",
+	"display_id": true,
+	"disable_email": false,
+	"show_email": true,
+
+	"recent_replies": 4,
+	"threads_page": 10,
+
+	"max_filesize": 8388608,
+	"max_filename": 28,
+	"file_download": "original",
+
+	"thumb_method": "GD",
+	"thumb_ext": ".jpg",
+	"thumb_res_op": 250,
+	"thumb_res_reply": 125,
+
+	"thumb_spoiler": "spoiler.png",
+	"thumb_audio": "audio.png",
+	"thumb_video": "video.png",
+	"thumb_download": "download.png",
+	"thumb_deleted": "deleted.png",
+	"thumb_nofile": "nofile.png",
+	"spoiler_enabled": true,
+	"icon_locked": "lock.png",
+	"icon_autosage": "anchor.png",
+	"icon_sticky": "ping.png",
+
+	"video_width": 320,
+	"video_height": 240,
+
+	"thumbnail_bg_red": 255,
+	"thumbnail_bg_green": 255,
+	"thumbnail_bg_blue": 238,
+
+	"image_max_res": 9999,
+	"uploads_folder": "uploads",
+	"original_filename": true,
+	"filename_method": "unix",
+	"allow_files": true,
+
+	"extensions_img": "jpg, jpeg, gif, png, webp",
+	"extensions_audio": "mp3, wav, ogg",
+	"extensions_video": "mp4, webm, ogv, avi, mkv",
+	"extensions_downloads": "pdf, txt, zip, rar, 7z",
+
+	"styles_all": "Yotsuba B, Yotsuba, Burichan, Futaba, Cyanide, Tomorrow, Kareha, Sankarea",
+	"styles_text": "Kareha, Sankarea",
+	"detault_style": "Yotsuba B",
+	"default_style_text": "Sankarea",
+
+	"javascripts": "main.js",
+
+	"post_require_file": false,
+	"post_require_subject": false,
+	"post_body_min": 0,
+	"post_body_max": 4000,
+
+	"reply_file_only": true,
+	"reply_body_min": 10,
+	"reply_body_max": 4000,
+
+	"max_lines": 40,
+	"linkify_urls": true,
+	"filter_zalgo": true,
+	"wordfilters": "/little sister/i;imouto",
+
+	"mod_ip": 40,
+	"mod_ban": 40,
+	"mod_reports": 10,
+	"mod_reports_global": 40,
+	"mod_thread_sticky": 40,
+	"mod_thread_lock": 40,
+	"mod_thread_autosage": 40,
+	"mod_post_edit": 40,
+	"mod_post_delete": 10,
+	"mod_post_in_locked": 40,
+	"mod_public_mod_level": 40,
+	"mod_edit_user": 9001,
+	"mod_mod_log": 40,
+	"mod_mod_only": 10,
+
+	"footer": [
+		"Home,index.php",
+		"News,custom.php?page=news",
+		"Rules,custom.php?page=rules",
+		"Help,custom.php?page=help",
+		"About,custom.php?page=about",
+		"Contact,custom.php?page=contact",
+		"Legal,custom.php?page=legal",
+		"Manage,mod.php"
+	]
+}
