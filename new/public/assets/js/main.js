@@ -1,4 +1,27 @@
 //captcha code
+function create_captcha() {
+	// Create an XMLHttpRequest object
+	var xhttp = new XMLHttpRequest()
+
+	// Define the callback function to handle the response
+	xhttp.onreadystatechange = function () {
+		if (this.readyState == 4 && this.status == 200) {
+			// Get the captcha code from the response
+			var captchaCode = this.responseText
+
+			// Set the src attribute of the image with ID "captcha"
+			document.getElementById("captcha").src = "frames/captcha.php"
+			// captchaImage.setAttribute("js-src", "frames/captcha.php?string=" + captchaCode)
+		}
+	}
+
+	// Open a GET request to the captcha generation endpoint
+	xhttp.open("GET", "index.php?captcha_gen&get_captcha_code", true)
+
+	// Send the request
+	xhttp.send()
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
 	if ((captcha_required = true)) {
 		if (document.getElementById("captcha")) {
@@ -6,19 +29,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
 			const captcha_image = document.querySelector("#captcha")
 			const captcha_field = document.querySelector("#captcha-field")
 			document.getElementById("load-captcha").onclick = function () {
-				if (document.querySelector("details.js-captcha").open == false) {
-					captcha.src = captcha.getAttribute("js-src") + "?" + Date.now()
-					captcha_field.value = ""
-					captcha_field.focus()
-				} else {
-					captcha.src = ""
-					captcha_field.value = ""
+				if (document.getElementsByClassName("js-captcha")) {
+					if (!document.querySelector("details.js-captcha").open) {
+						create_captcha()
+						captcha_field.value = ""
+						captcha_field.focus()
+					} else {
+						captcha.src = ""
+						captcha_field.value = ""
+					}
 				}
 			}
 			//refresh
 			captcha_image.onclick = function () {
-				captcha.src = ""
-				captcha.src = install_location + "/captcha.php?" + Date.now()
+				create_captcha()
 				captcha_field.value = ""
 				captcha_field.focus()
 			}
@@ -26,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				if (captcha.src == location.href || captcha.src == "") {
 					//if empty, yes this is weird it goes to href when emptied out by js, but '' if never changed before.
 					document.querySelector("details.js-captcha").open = true
-					captcha.src = install_location + "/captcha.php?" + Date.now()
+					create_captcha()
 					captcha_field.value = ""
 					captcha_field.focus()
 				}
@@ -36,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				if (captcha.src == location.href || captcha.src == "") {
 					//if empty, yes this is weird it goes to href when emptied out by js, but '' if never changed before.
 					document.querySelector("details.js-captcha").open = true
-					captcha.src = install_location + "/captcha.php?" + Date.now()
+					create_captcha()
 					captcha_field.value = ""
 					captcha_field.focus()
 				}

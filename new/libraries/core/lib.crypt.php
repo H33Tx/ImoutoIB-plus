@@ -36,3 +36,36 @@ function decode_string($encoded_string, $salt)
 
     return $decoded_string;
 }
+
+if (!function_exists("str_contains")) {
+    function str_contains($haystack, $needle)
+    {
+        return $needle !== "" && mb_strpos($haystack, $needle) !== false;
+    }
+}
+
+function generate_string(string $input, int $strength = 10): string
+{
+    $input_length = strlen($input);
+    $random_string = '';
+    for ($i = 0; $i < $strength; $i++) {
+        $random_character = $input[random_int(0, $input_length - 1)];
+        $random_string .= $random_character;
+    }
+    return strtolower($random_string);
+}
+
+if (isset($_GET["captcha_gen"]) && str_contains($_SERVER["PHP_SELF"], "index.php")) {
+    if (!isset($permitted_chars)) {
+        // allow for changing this in config.php I guess
+        $permitted_chars = '123456789ACDEFGHJKLMNPRSRUVWXY';
+    }
+
+    $string_length = 6;
+    $captcha_string = generate_string($permitted_chars, $string_length);
+
+    if (isset($_GET["get_captcha_code"])) {
+        $captcha = encode_string($captcha_string, $config["captcha_crypt"]);
+        $_SESSION["captcha"] = $captcha;
+    }
+}

@@ -26,5 +26,5 @@
     <script type="text/javascript" src="assets/js/main.js"></script>
 </head>
 
-<body class="frontpage">
+<body {if isset($current_page) && !empty($current_page)}current_page="{$current_page}" {else}class="frontpage" {/if}>
 <a name="top" id="top"></a>

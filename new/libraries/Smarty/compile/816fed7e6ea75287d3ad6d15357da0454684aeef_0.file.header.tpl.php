@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2024-01-14 01:21:27
+/* Smarty version 4.3.0, created on 2024-01-14 16:45:39
   from 'C:\xampp8\htdocs\ImoutoIB-plus\new\templates\imouto\themes\default\parts\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_65a329070260c2_52152292',
+  'unifunc' => 'content_65a401a3619bc0_20185934',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '816fed7e6ea75287d3ad6d15357da0454684aeef' => 
     array (
       0 => 'C:\\xampp8\\htdocs\\ImoutoIB-plus\\new\\templates\\imouto\\themes\\default\\parts\\header.tpl',
-      1 => 1705191686,
+      1 => 1705247016,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a329070260c2_52152292 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a401a3619bc0_20185934 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="" data-stylesheet="<?php echo $_smarty_tpl->tpl_vars['config']->value['detault_style'];?>
 ">
@@ -58,6 +58,7 @@ function content_65a329070260c2_52152292 (Smarty_Internal_Template $_smarty_tpl)
 >
 </head>
 
-<body class="frontpage">
+<body <?php if ((isset($_smarty_tpl->tpl_vars['current_page']->value)) && !empty($_smarty_tpl->tpl_vars['current_page']->value)) {?>current_page="<?php echo $_smarty_tpl->tpl_vars['current_page']->value;?>
+" <?php } else { ?>class="frontpage" <?php }?>>
 <a name="top" id="top"></a><?php }
 }

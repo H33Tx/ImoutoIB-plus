@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2024-01-14 01:29:04
+/* Smarty version 4.3.0, created on 2024-01-14 16:16:53
   from 'C:\xampp8\htdocs\ImoutoIB-plus\new\templates\imouto\themes\default\pages\index.index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_65a32ad029b4f6_10137518',
+  'unifunc' => 'content_65a3fae5404fe1_87512971',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ae153620014f054218514893aa387857734a1d45' => 
     array (
       0 => 'C:\\xampp8\\htdocs\\ImoutoIB-plus\\new\\templates\\imouto\\themes\\default\\pages\\index.index.tpl',
-      1 => 1705192144,
+      1 => 1705245411,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65a32ad029b4f6_10137518 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65a3fae5404fe1_87512971 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="page-info">
     <h1><?php echo $_smarty_tpl->tpl_vars['config']->value['site_name'];?>
 </h1>

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // CORE
 
 require "core/lib.config.php";
