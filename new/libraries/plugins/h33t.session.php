@@ -26,6 +26,20 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && str_contains($_SER
         error($smarty, "User doesn't exist");
     }
 
+    if (!password_verify($_POST["password"], $user["password"])) {
+        error($smarty, "Wrong password.");
+    }
+
+    $session_token = gen_token();
+    $session = [
+        "token" => $session_token,
+        "user" => $user["id"],
+    ];
+    $db->insert("sessions", $session);
+
+    setcookie("mod_user", $user["username"], 0, "/", $_SERVER["HTTP_HOST"], isset($_SERVER["HTTPS"])); //not bothering setting expiry, they'll be replaced anyways if old.
+    setcookie("mod_session", $session_token, 0, "/", $_SERVER["HTTP_HOST"], isset($_SERVER["HTTPS"]));
+
     header("Refresh: 0");
     die();
 }
