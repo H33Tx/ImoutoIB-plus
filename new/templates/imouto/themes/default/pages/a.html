@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html data-stylesheet="Yotsuba">
+	<head>
+		<title>ImoutoIB</title>
+		<!--SETTINGS-->
+		<script>
+			var captcha_required = true
+			var install_location = "/ImoutoIB"
+			var default_theme = "Yotsuba"
+			var board_type = "img"
+		</script>
+		<!--LOAD THEME IMMEDIATELY-->
+		<script>
+			if (localStorage.theme !== undefined) {
+				document.documentElement.setAttribute("data-stylesheet", localStorage.theme)
+			}
+		</script>
+		<link rel="icon" type="image/png" href="/ImoutoIB/assets/img/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Yotsuba%20B.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Yotsuba.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Burichan.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Futaba.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Cyanide.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Tomorrow.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Kareha.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Sankarea.css" />
+		<script type="text/javascript" src="/ImoutoIB/assets/js/main.js"></script>
+	</head>
+	<body class="frontpage">
+		<a name="top"></a>
+		<div id="boardlist">
+			<span class="home">[<a href="/ImoutoIB/">Home</a>]</span>&nbsp;<span class="boards"
+				>[<a href="/ImoutoIB/?board=img" data-boards="img">imageboard</a> /
+				<a href="/ImoutoIB/?board=txt" data-boards="txt">textboard</a>]</span
+			>
+		</div>
+		<div class="banner">
+			<img class="banner" src="/ImoutoIB/assets/img/banners/banner2.jpg" />
+		</div>
+		<div class="page-info">
+			<h1><?php echo $site_name; ?></h1>
+			<span class="small"><?php echo $site_slogan; ?></span>
+		</div>
+
+		<br />
+
+		<div class="main first">
+			<h2>Live Demo</h2>
+			<p>
+				This software is probably riddled with bugs and exploits.<br />Please send me questions, feature
+				requests, and bug reports on
+				<a href="https://github.com/ithrts/ImoutoIB" target="_blank">Github</a>.<br /><br />You should not use
+				ImoutoIB in any serious capacity.
+			</p>
+		</div>
+		<br />
+		<div class="main">
+			<h2>Boards</h2>
+			<table id="boards">
+				<thead>
+					<tr>
+						<th><small>Board</small></th>
+						<th><small>Description</small></th>
+						<th><small>Posts</small></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="cat" id="Testing Boards">
+						<th><span class="small"></span></th>
+						<th><h2>Testing Boards</h2></th>
+						<th><span class="small"></span></th>
+					</tr>
+					<tr>
+						<th><a href="/ImoutoIB/?board=img">/img/ - imageboard</a></th>
+						<th>You can test the imageboard functions here.</th>
+						<th>5</th>
+					</tr>
+					<tr>
+						<th><a href="/ImoutoIB/?board=txt">/txt/ - textboard</a></th>
+						<th>You can test the textboard functions here.</th>
+						<th>2</th>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+		</div>
+
+		<br />
+		<div class="main">
+			<h2>Stats</h2>
+			<div class="stats">
+				<div><b>Total Posts:</b> 7</div>
+				<div><b>Unique Posters:</b> 1</div>
+				<div><b>Active Content:</b> 2 MB</div>
+			</div>
+		</div>
+		<hr class="footer static" />
+		<div class="static footer">
+			<ul>
+				<li><a href="/ImoutoIB/">Home</a></li>
+				<li><a href="/ImoutoIB/?page=news">News</a></li>
+				<li><a href="/ImoutoIB/?page=rules">Rules</a></li>
+				<li><a href="/ImoutoIB/?page=help">Help</a></li>
+				<li><a href="/ImoutoIB/?page=about">About</a></li>
+				<li><a href="/ImoutoIB/?page=contact">Contact</a></li>
+				<li><a href="/ImoutoIB/?page=legal">Legal</a></li>
+				<li><a href="/ImoutoIB/mod.php">Manage</a></li>
+			</ul>
+		</div>
+		<div class="abovefooter">
+			<div class="float-right">
+				<select id="themes">
+					<option value="Yotsuba B">Yotsuba B</option>
+					<option value="Yotsuba">Yotsuba</option>
+					<option value="Burichan">Burichan</option>
+					<option value="Futaba">Futaba</option>
+					<option value="Cyanide">Cyanide</option>
+					<option value="Tomorrow">Tomorrow</option>
+					<option value="Kareha">Kareha</option>
+					<option value="Sankarea">Sankarea</option>
+				</select>
+				<noscript>
+					<style>
+						select#themes {
+							display: none;
+						}
+					</style>
+					<details>
+						<summary style="text-align: right">Themes</summary>
+						&nbsp;[<a href="/ImoutoIB/?board=&thread=&theme=Yotsuba%20B">Yotsuba B</a>]&nbsp;[<a
+							href="/ImoutoIB/?board=&thread=&theme=Yotsuba"
+							>Yotsuba</a
+						>]&nbsp;[<a href="/ImoutoIB/?board=&thread=&theme=Burichan">Burichan</a>]&nbsp;[<a
+							href="/ImoutoIB/?board=&thread=&theme=Futaba"
+							>Futaba</a
+						>]&nbsp;[<a href="/ImoutoIB/?board=&thread=&theme=Cyanide">Cyanide</a>]&nbsp;[<a
+							href="/ImoutoIB/?board=&thread=&theme=Tomorrow"
+							>Tomorrow</a
+						>]&nbsp;[<a href="/ImoutoIB/?board=&thread=&theme=Kareha">Kareha</a>]&nbsp;[<a
+							href="/ImoutoIB/?board=&thread=&theme=Sankarea"
+							>Sankarea</a
+						>]
+					</details>
+				</noscript>
+			</div>
+		</div>
+		<div class="footer">
+			<p>
+				<a style="text-decoration: underline" href="https://github.com/saintly2k/ImoutoIB" target="_blank"
+					>ImoutoIB</a
+				>
+			</p>
+			<p>0.115-dev</p>
+			<p class="small">Page generated in 0.0032 seconds.</p>
+			<br />
+			<a name="bottom"></a>
+		</div>
+	</body>
+</html>

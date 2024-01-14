@@ -1,7 +1,11 @@
 {
-	"db": "MySQL",
+	"db": "MySQLi",
 	"theme": "imouto",
 	"subtheme": "default",
+
+	"plugins_enabled": true,
+	"plugins_directory": "/plugins",
+	"plugins_string": "h33t.banner,",
 
 	"debug": true,
 	"generated_in": true,
@@ -15,6 +19,7 @@
 
 	"captcha_required": true,
 	"boardlist": "title",
+	"index_list": "imouto",
 
 	"time_method": "compactsince",
 	"time_method_hover": "human",
@@ -61,10 +66,10 @@
 	"filename_method": "unix",
 	"allow_files": true,
 
-	"extensions_img": "jpg, jpeg, gif, png, webp",
-	"extensions_audio": "mp3, wav, ogg",
-	"extensions_video": "mp4, webm, ogv, avi, mkv",
-	"extensions_downloads": "pdf, txt, zip, rar, 7z",
+	"extensions_img": "jpg,jpeg,gif,png,webp",
+	"extensions_audio": "mp3,wav,ogg",
+	"extensions_video": "mp4,webm,ogv,avi,mkv",
+	"extensions_downloads": "pdf,txt,zip,rar,7z",
 
 	"styles_all": "Yotsuba B, Yotsuba, Burichan, Futaba, Cyanide, Tomorrow, Kareha, Sankarea",
 	"styles_text": "Kareha, Sankarea",
@@ -100,16 +105,5 @@
 	"mod_public_mod_level": 40,
 	"mod_edit_user": 9001,
 	"mod_mod_log": 40,
-	"mod_mod_only": 10,
-
-	"footer": [
-		"Home,index.php",
-		"News,custom.php?page=news",
-		"Rules,custom.php?page=rules",
-		"Help,custom.php?page=help",
-		"About,custom.php?page=about",
-		"Contact,custom.php?page=contact",
-		"Legal,custom.php?page=legal",
-		"Manage,mod.php"
-	]
+	"mod_mod_only": 10
 }

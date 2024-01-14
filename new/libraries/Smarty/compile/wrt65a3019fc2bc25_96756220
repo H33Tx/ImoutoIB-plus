@@ -1,0 +1,25 @@
+<?php
+/* Smarty version 4.3.0, created on 2024-01-13 22:33:19
+  from 'C:\xampp8\htdocs\ImoutoIB-plus\new\templates\imouto\themes\default\parts\footer.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.0',
+  'unifunc' => 'content_65a3019fc2b5a1_20350087',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '6fe5ce05faba443c0c879cd41e9ed0a4711df0d2' => 
+    array (
+      0 => 'C:\\xampp8\\htdocs\\ImoutoIB-plus\\new\\templates\\imouto\\themes\\default\\parts\\footer.tpl',
+      1 => 1705181009,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_65a3019fc2b5a1_20350087 (Smarty_Internal_Template $_smarty_tpl) {
+}
+}

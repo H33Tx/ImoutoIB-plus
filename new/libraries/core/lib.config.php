@@ -51,6 +51,16 @@ function read_config()
     return $mergedConfig;
 }
 
+function read_specific_config($config)
+{
+    check_configs();
+
+    // Read default config
+    $config = json_decode(file_get_contents($config), true);
+
+    return $config;
+}
+
 function read_custom_config()
 {
     check_configs();
@@ -78,16 +88,36 @@ function update_config($newSettings = array())
 
 function edit_config_setting($settingKey, $newValue)
 {
-    // Read existing custom config
-    $customConfig = read_custom_config(CONFIG_CUSTOM);
+    // Read existing default and custom configs
+    $defaultConfig = read_specific_config(CONFIG_DEFAULT);
+    $customConfig = read_specific_config(CONFIG_CUSTOM);
 
-    // Update the specific setting or add it if not exists
-    $customConfig[$settingKey] = $newValue;
+    // Check if the setting exists in the default config
+    if (array_key_exists($settingKey, $defaultConfig)) {
+        // Check if the new value is the same as in the default config
+        if ($newValue === $defaultConfig[$settingKey]) {
+            // Remove the setting from the custom config if it exists
+            if (isset($customConfig[$settingKey])) {
+                unset($customConfig[$settingKey]);
+            }
+        } else {
+            // Update the specific setting or add it if not exists
+            $customConfig[$settingKey] = $newValue;
+        }
 
-    // Save the updated custom config
-    file_put_contents(CONFIG_CUSTOM, json_encode($customConfig, JSON_PRETTY_PRINT));
+        // Save the updated custom config
+        file_put_contents(CONFIG_CUSTOM, json_encode($customConfig, JSON_PRETTY_PRINT));
 
-    return true; // Success
+        return true; // Success
+    } else {
+        // Add the setting to the custom config if it doesn't exist in the default config
+        $customConfig[$settingKey] = $newValue;
+
+        // Save the updated custom config
+        file_put_contents(CONFIG_CUSTOM, json_encode($customConfig, JSON_PRETTY_PRINT));
+
+        return true; // Success
+    }
 }
 
 function version()

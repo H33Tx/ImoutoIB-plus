@@ -11,6 +11,7 @@ $current_page = '$current_page';
 $current_board = "";
 $current_thread = "";
 $board_title = '$board_title';
+$board_type = "text";
 $board_slogan = '$board_slogan';
 $board_description = '$board_description';
 $post_number_op = "";
