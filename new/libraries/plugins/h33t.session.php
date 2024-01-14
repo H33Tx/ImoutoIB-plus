@@ -44,6 +44,14 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && str_contains($_SER
     die();
 }
 
+// Logout function
+if (isset($_POST["logout"])) {
+    setcookie("mod_user", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], isset($_SERVER["HTTPS"]), true);
+    setcookie("mod_session", "", time() - 3600, "/", $_SERVER["HTTP_HOST"], isset($_SERVER["HTTPS"]), true);
+    header("Refresh: 0");
+    die();
+}
+
 // Checking now...
 if (isset($_COOKIE["mod_user"]) && isset($_COOKIE["mod_session"])) {
     if ($_COOKIE["mod_user"] == "") {

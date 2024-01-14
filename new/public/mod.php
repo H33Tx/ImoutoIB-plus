@@ -10,6 +10,7 @@ if (!$logged_in) {
 
 $footer_bar = $db->where("active", true)->orderBy("number", "ASC")->get("footer_bar");
 $smarty->assign("footer_items", $footer_bar);
+$smarty->assign("display_page", $page);
 
 // $pw = password_hash("password", PASSWORD_BCRYPT);
 // echo $pw;
@@ -17,7 +18,10 @@ $smarty->assign("footer_items", $footer_bar);
 
 $smarty->display("parts/header.tpl");
 $smarty->display("parts/boardlist.tpl");
+if ($logged_in) {
+    $smarty->display("parts/admin_header.tpl");
+}
 // $smarty->display("parts/banner.tpl");
-$smarty->display("pages/mod.{$page}.tpl");
+// $smarty->display("pages/mod.{$page}.tpl");
 $smarty->display("parts/footer_bar.tpl");
 $smarty->display("parts/footer.tpl");

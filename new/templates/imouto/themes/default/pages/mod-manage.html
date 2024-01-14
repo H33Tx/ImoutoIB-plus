@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html data-stylesheet="Yotsuba">
+	<head>
+		<title>Manage Users - ImoutoIB</title>
+		<!--SETTINGS-->
+		<script>
+			var captcha_required = true
+			var install_location = "/ImoutoIB"
+			var default_theme = "Yotsuba"
+			var board_type = "img"
+		</script>
+		<!--LOAD THEME IMMEDIATELY-->
+		<script>
+			if (localStorage.theme !== undefined) {
+				document.documentElement.setAttribute("data-stylesheet", localStorage.theme)
+			}
+		</script>
+		<link rel="icon" type="image/png" href="/ImoutoIB/assets/img/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Yotsuba%20B.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Yotsuba.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Burichan.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Futaba.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Cyanide.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Tomorrow.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Kareha.css" />
+		<link rel="stylesheet" type="text/css" href="/ImoutoIB/assets/css/Sankarea.css" />
+		<script type="text/javascript" src="/ImoutoIB/assets/js/main.js"></script>
+	</head>
+	<body class="frontpage">
+		<a name="top"></a>
+		<div id="boardlist">
+			<span class="home">[<a href="/ImoutoIB/">Home</a>]</span>&nbsp;<span class="boards"
+				>[<a href="/ImoutoIB/?board=img" data-boards="img">imageboard</a> /
+				<a href="/ImoutoIB/?board=txt" data-boards="txt">textboard</a> /
+				<a href="/ImoutoIB/?board=mod" data-boards="mod">Moderator Board</a> /
+				<a href="/ImoutoIB/?board=hidden" data-boards="hidden">hidden</a>]</span
+			>
+		</div>
+		<div class="page-info">
+			<h1>Dashbord</h1>
+			<div class="small">Try not to ruin everything.</div>
+			<br />Logged in as: (ID:0, Username: admin, Level: 9001)<br />
+			<form name="logout" action="/ImoutoIB/mod.php" method="post">
+				<input type="hidden" id="logout" name="logout" value="logout" /><input type="Submit" value="Logout" />
+			</form>
+		</div>
+		<div class="main first">
+			<h2>Moderator tools</h2>
+			<p>Things like notices or messages may be here later.</p>
+		</div>
+		<br />
+		<div class="box flex">
+			<div class="box left">
+				<h2>Navigation</h2>
+				<ul class="box-list">
+					<li><a href="/ImoutoIB/mod.php">Home</a></li>
+					<li><a href="/ImoutoIB/mod.php?page=account">Account</a></li>
+					<li><a href="/ImoutoIB/mod.php?page=users" class="active">Manage Users</a></li>
+					<li><a href="/ImoutoIB/mod.php?page=reports">Reports (0)</a></li>
+					<li><a href="/ImoutoIB/mod.php?page=global_reports">Global Reports (0)</a></li>
+					<li><a href="/ImoutoIB/mod.php?page=bans">Manage Bans</a></li>
+				</ul>
+			</div>
+			<div class="container-right">
+				<div class="box right">
+					<h2>Create User</h2>
+					<div class="box-content">
+						<p>
+							<details>
+								<summary>Create User</summary>
+								<form name="create-user" action="/ImoutoIB/mod.php?page=users" method="post">
+									<table id="post-form" style="width: initial">
+										<tbody>
+											<tr>
+												<th>Username:</th>
+												<td>
+													<input
+														type="text"
+														name="create-username"
+														size="25"
+														maxlength="32"
+														autocomplete="off"
+														placeholder="Username"
+														required />
+												</td>
+											</tr>
+											<tr>
+												<th>Password:</th>
+												<td>
+													<input
+														type="password"
+														name="create-password"
+														size="25"
+														maxlength="256"
+														autocomplete="off"
+														placeholder="Password"
+														required />
+												</td>
+											</tr>
+											<tr>
+												<th>Password x2:</th>
+												<td>
+													<input
+														type="password"
+														name="create-password2"
+														size="25"
+														maxlength="256"
+														autocomplete="off"
+														placeholder="Password"
+														required />
+												</td>
+											</tr>
+											<tr>
+												<th>User Level:</th>
+												<td>
+													<select name="create-level">
+														<option value="9001">Admin (9001)</option>
+														<option value="40">Moderator (40)</option>
+														<option value="10">Janitor (10)</option>
+														<option value="0" selected>User (0)</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<th style="visibility: hidden"></th>
+												<td>
+													<input
+														type="submit"
+														name="create-user"
+														value="Create User"
+														style="float: right" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</form>
+							</details>
+						</p>
+					</div>
+				</div>
+				<br />
+				<div class="box right">
+					<h2>Manage Users</h2>
+					<div class="box-content">
+						<table>
+							<thead>
+								<td>ID</td>
+								<td>Username</td>
+								<td>Mod Level</td>
+								<td>Actions</td>
+							</thead>
+							<tbody>
+								<tr>
+									<td>0</td>
+									<td>admin</td>
+									<td>Admin (9001)</td>
+									<td>
+										<details>
+											<summary>More</summary>
+											<details>
+												<summary style="font-size: smaller">Edit</summary>
+												<form
+													name="edit-user"
+													action="/ImoutoIB/mod.php?page=users"
+													method="post">
+													<table id="post-form" style="width: initial">
+														<tbody>
+															<tr>
+																<th>Username:</th>
+																<td>
+																	<input
+																		type="hidden"
+																		name="edit-username"
+																		value="admin" /><input
+																		type="text"
+																		name="edit-username-view"
+																		size="25"
+																		maxlength="32"
+																		autocomplete="off"
+																		value="admin"
+																		disabled />
+																</td>
+															</tr>
+															<!---<tr><th>Password:</th><td><input type="password" name="edit-password" size="25" maxlength="256" autocomplete="off" placeholder="Leave Empty To Not Change"></td></tr>
+					<tr><th>Password x2:</th><td><input type="password" name="edit-password2" size="25" maxlength="256" autocomplete="off" placeholder="Leave Empty To Not Change"></td></tr>-->
+															<tr>
+																<th>User Level:</th>
+																<td>
+																	<select name="edit-level">
+																		<option value="9001" selected>
+																			Admin (9001)
+																		</option>
+																		<option value="40">Moderator (40)</option>
+																		<option value="10">Janitor (10)</option>
+																		<option value="0">User (0)</option>
+																	</select>
+																</td>
+															</tr>
+															<tr>
+																<th style="visibility: hidden"></th>
+																<td>
+																	<input
+																		type="submit"
+																		name="edit-user"
+																		value="Edit User"
+																		style="float: right" />
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</form>
+											</details>
+											<details>
+												<summary style="font-size: smaller">Delete</summary>
+												<details>
+													<summary>
+														Are you sure you want to delete this user (admin)?
+													</summary>
+													<details>
+														<summary>Yes!</summary>
+														<form
+															name="delete-user"
+															action="/ImoutoIB/mod.php?page=users"
+															method="post">
+															<input
+																type="hidden"
+																id="delete-username"
+																name="delete-username"
+																value="admin" /><input
+																type="Submit"
+																name="delete-user"
+																value="Delete" />
+														</form>
+													</details>
+												</details>
+											</details>
+										</details>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<br />
+		</div>
+		<hr class="footer static" />
+		<div class="static footer">
+			<ul>
+				<li><a href="/ImoutoIB/">Home</a></li>
+				<li><a href="/ImoutoIB/?page=news">News</a></li>
+				<li><a href="/ImoutoIB/?page=rules">Rules</a></li>
+				<li><a href="/ImoutoIB/?page=help">Help</a></li>
+				<li><a href="/ImoutoIB/?page=about">About</a></li>
+				<li><a href="/ImoutoIB/?page=contact">Contact</a></li>
+				<li><a href="/ImoutoIB/?page=legal">Legal</a></li>
+				<li><a href="/ImoutoIB/mod.php">Manage</a></li>
+			</ul>
+		</div>
+		<div class="abovefooter">
+			<div class="float-right">
+				<select id="themes">
+					<option value="Yotsuba B">Yotsuba B</option>
+					<option value="Yotsuba">Yotsuba</option>
+					<option value="Burichan">Burichan</option>
+					<option value="Futaba">Futaba</option>
+					<option value="Cyanide">Cyanide</option>
+					<option value="Tomorrow">Tomorrow</option>
+					<option value="Kareha">Kareha</option>
+					<option value="Sankarea">Sankarea</option>
+				</select>
+				<noscript>
+					<style>
+						select#themes {
+							display: none;
+						}
+					</style>
+					<details>
+						<summary style="text-align: right">Themes</summary>
+						&nbsp;[<a href="/ImoutoIB/?board=&thread=&theme=Yotsuba%20B">Yotsuba B</a>]&nbsp;[<a
+							href="/ImoutoIB/?board=&thread=&theme=Yotsuba"
+							>Yotsuba</a
+						>]&nbsp;[<a href="/ImoutoIB/?board=&thread=&theme=Burichan">Burichan</a>]&nbsp;[<a
+							href="/ImoutoIB/?board=&thread=&theme=Futaba"
+							>Futaba</a
+						>]&nbsp;[<a href="/ImoutoIB/?board=&thread=&theme=Cyanide">Cyanide</a>]&nbsp;[<a
+							href="/ImoutoIB/?board=&thread=&theme=Tomorrow"
+							>Tomorrow</a
+						>]&nbsp;[<a href="/ImoutoIB/?board=&thread=&theme=Kareha">Kareha</a>]&nbsp;[<a
+							href="/ImoutoIB/?board=&thread=&theme=Sankarea"
+							>Sankarea</a
+						>]
+					</details>
+				</noscript>
+			</div>
+		</div>
+		<div class="footer">
+			<p>
+				<a style="text-decoration: underline" href="https://github.com/saintly2k/ImoutoIB" target="_blank"
+					>ImoutoIB</a
+				>
+			</p>
+			<p>0.115-dev</p>
+			<p class="small">Page generated in 0.00271 seconds.</p>
+			<br />
+			<a name="bottom"></a>
+		</div>
+	</body>
+</html>
