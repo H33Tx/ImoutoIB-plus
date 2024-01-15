@@ -20,8 +20,9 @@ $smarty->display("parts/header.tpl");
 $smarty->display("parts/boardlist.tpl");
 if ($logged_in) {
     $smarty->display("parts/admin_header.tpl");
-}
+} else {
 // $smarty->display("parts/banner.tpl");
-// $smarty->display("pages/mod.{$page}.tpl");
+    $smarty->display("pages/mod.{$page}.tpl");
+}
 $smarty->display("parts/footer_bar.tpl");
 $smarty->display("parts/footer.tpl");
